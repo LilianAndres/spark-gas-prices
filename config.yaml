@@ -1,0 +1,59 @@
+github:
+  base_url: "https://raw.githubusercontent.com/rvm-courses/GasPrices/master"
+
+data:
+  output_dir: "data/gas"
+  years: [2022, 2023, 2024]
+
+geo:
+  output_dir: "data/geo"
+  departments:
+    filename: departements.geojson
+    url: https://france-geojson.gregoiredavid.fr/repo/departements.geojson
+
+naming:
+  price_pattern: "Prix{year}.csv.gz"
+
+exceptions:
+  split_years:
+    2022:
+      - "Prix2022S1.csv.gz"
+      - "Prix2022S2.csv.gz"
+
+metadata:
+  year: 2024
+  stations_pattern: "Stations{year}.csv.gz"
+  services_pattern: "Services{year}.csv.gz"
+
+schema:
+  price:
+    delimiter: ";"
+    columns:
+      - "station_id"
+      - "zipcode"
+      - "population"
+      - "latitude"
+      - "longitude"
+      - "date"
+      - "fuel_id"
+      - "fuel_name"
+      - "price"
+  stations:
+    delimiter: "|"
+    columns:
+      - "station_id"
+      - "zipcode"
+      - "population"
+      - "latitude"
+      - "longitude"
+      - "address"
+      - "city"
+  services:
+    delimiter: "|"
+    columns:
+      - "station_id"
+      - "zipcode"
+      - "population"
+      - "latitude"
+      - "longitude"
+      - "services"
